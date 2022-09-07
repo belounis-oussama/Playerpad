@@ -1,0 +1,17 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Playerpad" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/Green_level1</item>
+        <item name="colorPrimaryVariant">@color/buttons_color</item>
+        <item name="colorOnPrimary">@color/backgroud_white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/Green_level2</item>
+        <item name="colorSecondaryVariant">@color/buttons_color</item>
+        <item name="colorOnSecondary">@color/Green_level3</item>
+
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorOnSecondary</item>
+        <!-- Customize your theme here. -->
+    </style>
+</resources>
