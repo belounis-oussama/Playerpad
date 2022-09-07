@@ -4,6 +4,7 @@ import static com.example.playerpad.AlbumDetailsAdapter.albumFiles;
 import static com.example.playerpad.MainActivity.musicFiles;
 import static com.example.playerpad.MainActivity.repatBoolean;
 import static com.example.playerpad.MainActivity.shuffleBoolean;
+import static com.example.playerpad.MusicAdapter.mFiles;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -408,7 +409,7 @@ public class PlayerActivity extends AppCompatActivity {
         }
         else
         {
-            listSongs= musicFiles;
+            listSongs= mFiles;
         }
 
 

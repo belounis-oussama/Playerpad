@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 public class SongsFragment extends Fragment {
     RecyclerView recyclerView;
-    MusicAdapter musicAdapter;
+    static MusicAdapter musicAdapter;
 
     public SongsFragment() {
         // Required empty public constructor

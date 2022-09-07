@@ -13,6 +13,7 @@
         <entry key="..\:/Coding/Playerpad/app/src/main/res/drawable/ic_round_play_arrow_24.xml" value="0.1745" />
         <entry key="..\:/Coding/Playerpad/app/src/main/res/drawable/ic_round_repeat_24.xml" value="0.1745" />
         <entry key="..\:/Coding/Playerpad/app/src/main/res/drawable/ic_round_repeat_on.xml" value="0.1745" />
+        <entry key="..\:/Coding/Playerpad/app/src/main/res/drawable/ic_round_search_24.xml" value="0.1745" />
         <entry key="..\:/Coding/Playerpad/app/src/main/res/drawable/ic_round_shuffle_24.xml" value="0.1745" />
         <entry key="..\:/Coding/Playerpad/app/src/main/res/drawable/ic_round_shuffle_on.xml" value="0.1745" />
         <entry key="..\:/Coding/Playerpad/app/src/main/res/layout/activity_album_details.xml" value="0.17074275362318841" />
@@ -23,6 +24,7 @@
         <entry key="..\:/Coding/Playerpad/app/src/main/res/layout/fragment_songs.xml" value="0.14" />
         <entry key="..\:/Coding/Playerpad/app/src/main/res/layout/music_items.xml" value="0.25" />
         <entry key="..\:/Coding/Playerpad/app/src/main/res/menu/popup.xml" value="0.20677083333333332" />
+        <entry key="..\:/Coding/Playerpad/app/src/main/res/menu/search.xml" value="0.20572916666666666" />
       </map>
     </option>
   </component>
