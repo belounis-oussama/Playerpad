@@ -12,6 +12,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:requestLegacyExternalStorage="true"
+        android:name=".ApplicationClass"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Playerpad"
@@ -31,6 +32,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service android:name=".MusicService" android:enabled="true"/>
     </application>
 
 </manifest>
