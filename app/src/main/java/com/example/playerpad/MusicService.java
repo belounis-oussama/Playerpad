@@ -16,26 +16,23 @@ import java.util.ArrayList;
 
 public class MusicService extends Service implements MediaPlayer.OnCompletionListener {
 
-    MyBinder mBinder= new MyBinder();
+    MyBinder mBinder = new MyBinder();
     MediaPlayer mediaPlayer;
-    ArrayList<MusicFiles> musicFiles=new ArrayList<>();
+    ArrayList<MusicFiles> musicFiles = new ArrayList<>();
     Uri uri;
-    int position=-1;
+    int position = -1;
     ActionPlaying actionPlaying;
 
     @Override
     public void onCreate() {
         super.onCreate();
 
-
     }
-
 
 
     public class MyBinder extends Binder {
 
-        MusicService getService()
-        {
+        MusicService getService() {
             return MusicService.this;
         }
     }
@@ -50,28 +47,37 @@ public class MusicService extends Service implements MediaPlayer.OnCompletionLis
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
-        int myPosition =intent.getIntExtra("servicePosition",-1);
-        String actionName=intent.getStringExtra("ActionName");
+        int myPosition = intent.getIntExtra("servicePosition", -1);
+        String actionName = intent.getStringExtra("ActionName");
 
-        if (myPosition != -1)
-        {
+        if (myPosition != -1) {
             PlayMedia(myPosition);
         }
 
-        if (actionName != null)
-        {
-            switch (actionName)
-            {
+        if (actionName != null) {
+            switch (actionName) {
                 case "playPause":
                     Toast.makeText(this, "play pause", Toast.LENGTH_SHORT).show();
+
+                    if (actionPlaying != null) {
+                        actionPlaying.play_pause_btnClicked();
+                    }
                     break;
 
                 case "next":
                     Toast.makeText(this, "next", Toast.LENGTH_SHORT).show();
+
+                    if (actionPlaying != null) {
+                        actionPlaying.next_btnClicked();
+                    }
                     break;
 
                 case "previous":
                     Toast.makeText(this, "previous", Toast.LENGTH_SHORT).show();
+
+                    if (actionPlaying != null) {
+                        actionPlaying.prev_btnClicked();
+                    }
                     break;
             }
         }
@@ -81,21 +87,17 @@ public class MusicService extends Service implements MediaPlayer.OnCompletionLis
 
     private void PlayMedia(int startPosition) {
 
-        musicFiles=listSongs;
-        position=startPosition;
+        musicFiles = listSongs;
+        position = startPosition;
 
-        if (mediaPlayer != null)
-        {
+        if (mediaPlayer != null) {
             mediaPlayer.stop();
             mediaPlayer.release();
-            if (musicFiles != null)
-            {
+            if (musicFiles != null) {
                 createMediaPlayer(position);
                 mediaPlayer.start();
             }
-        }
-        else
-        {
+        } else {
             createMediaPlayer(position);
             mediaPlayer.start();
         }
@@ -103,70 +105,70 @@ public class MusicService extends Service implements MediaPlayer.OnCompletionLis
     }
 
 
-    void start()
-    {
+    void start() {
         mediaPlayer.start();
     }
 
-    void pause()
-    {
+    void pause() {
         mediaPlayer.pause();
     }
 
-    boolean isPlaying()
-    {
+    boolean isPlaying() {
         return mediaPlayer.isPlaying();
     }
 
-    void stop()
-    {
+    void stop() {
         mediaPlayer.stop();
     }
 
-    void release()
-    {
+    void release() {
         mediaPlayer.release();
     }
 
-    int getDuration()
-    {
+    int getDuration() {
         return mediaPlayer.getDuration();
     }
 
-    void seekTo(int position)
-    {
+    void seekTo(int position) {
         mediaPlayer.seekTo(position);
     }
 
-    int getCurrentPosition()
-    {
+    int getCurrentPosition() {
         return mediaPlayer.getCurrentPosition();
     }
 
-    void createMediaPlayer(int position)
-    {
-        uri =Uri.parse(musicFiles.get(position).getPath());
-        mediaPlayer = MediaPlayer.create(getBaseContext(),uri);
+    void createMediaPlayer(int positionInner) {
+        position=positionInner;
+        uri = Uri.parse(musicFiles.get(position).getPath());
+        mediaPlayer = MediaPlayer.create(getBaseContext(), uri);
     }
 
 
-    void OnCompleted()
-    {
+    void OnCompleted() {
         mediaPlayer.setOnCompletionListener(this);
     }
 
 
     @Override
-    public void onCompletion(MediaPlayer mediaPlayer) {
+    public void onCompletion(MediaPlayer mp) {
 
-        if (actionPlaying != null)
-        {
+        if (actionPlaying != null) {
             actionPlaying.next_btnClicked();
+
+            if (mediaPlayer != null)
+            {
+
+                createMediaPlayer(position);
+                mediaPlayer.start();
+                OnCompleted();
+            }
         }
 
-        createMediaPlayer(position);
-        mediaPlayer.start();
-        OnCompleted();
+    }
+
+    void setCallBack(ActionPlaying actionPlaying)
+    {
+        this.actionPlaying =actionPlaying;
     }
 
 }

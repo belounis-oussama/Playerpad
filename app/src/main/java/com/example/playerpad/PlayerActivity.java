@@ -38,6 +38,8 @@ import android.os.IBinder;
 import android.support.v4.media.session.MediaSessionCompat;
 import android.util.TypedValue;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -72,12 +74,15 @@ public class PlayerActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setFullScreen();
         setContentView(R.layout.activity_player);
+        getSupportActionBar().hide();
 
         mediaSessionCompat=new MediaSessionCompat(getBaseContext(),"My Audio");
 
         initWidget();
         getIntentExtras();
+
 
 
 
@@ -147,6 +152,11 @@ public class PlayerActivity extends AppCompatActivity
                 }
             }
         });
+    }
+
+    private void setFullScreen() {
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 
     @Override
@@ -530,7 +540,9 @@ public class PlayerActivity extends AppCompatActivity
         MusicService.MyBinder myBinder = (MusicService.MyBinder) service;
         musicService = myBinder.getService();
 
-        Toast.makeText(musicService, "Connected" + musicService, Toast.LENGTH_SHORT).show();
+        musicService.setCallBack(this);
+
+       // Toast.makeText(musicService, "Connected" + musicService, Toast.LENGTH_SHORT).show();
 
 
         seekBar.setMax(musicService.getDuration() / 1000);
