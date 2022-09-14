@@ -25,7 +25,13 @@
         <entry key="..\:/Coding/Playerpad/app/src/main/res/layout/music_items.xml" value="0.25" />
         <entry key="..\:/Coding/Playerpad/app/src/main/res/menu/popup.xml" value="0.20677083333333332" />
         <entry key="..\:/Coding/Playerpad/app/src/main/res/menu/search.xml" value="0.20572916666666666" />
+        <entry key="..\:/Coding/Playerpad_old/app/src/main/res/layout/activity_main.xml" value="0.17074275362318841" />
         <entry key="..\:/Coding/Playerpad_old/app/src/main/res/layout/activity_player.xml" value="0.17074275362318841" />
+        <entry key="..\:/Coding/Playerpad_old/app/src/main/res/layout/album_item.xml" value="0.17074275362318841" />
+        <entry key="..\:/Coding/Playerpad_old/app/src/main/res/layout/fragment_album.xml" value="0.17074275362318841" />
+        <entry key="..\:/Coding/Playerpad_old/app/src/main/res/layout/fragment_now_playing.xml" value="0.25" />
+        <entry key="..\:/Coding/Playerpad_old/app/src/main/res/layout/fragment_songs.xml" value="0.17074275362318841" />
+        <entry key="..\:/Coding/Playerpad_old/app/src/main/res/layout/music_items.xml" value="0.17074275362318841" />
       </map>
     </option>
   </component>

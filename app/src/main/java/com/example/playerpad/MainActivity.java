@@ -21,6 +21,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.FrameLayout;
 import android.widget.Switch;
 import android.widget.Toast;
 
@@ -37,10 +38,13 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     static ArrayList<MusicFiles> albums=new ArrayList<>();
     private String MY_SORT_PREFE="sortOrder";
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         permission();
 

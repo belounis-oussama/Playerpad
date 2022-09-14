@@ -67,7 +67,7 @@ public class PlayerActivity extends AppCompatActivity
     private Handler handler = new Handler();
     private Thread playThread, prevThread, nexThread;
     MusicService musicService;
-    MediaSessionCompat mediaSessionCompat;
+
 
 
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -78,7 +78,7 @@ public class PlayerActivity extends AppCompatActivity
         setContentView(R.layout.activity_player);
         getSupportActionBar().hide();
 
-        mediaSessionCompat=new MediaSessionCompat(getBaseContext(),"My Audio");
+
 
         initWidget();
         getIntentExtras();
@@ -242,7 +242,7 @@ public class PlayerActivity extends AppCompatActivity
                 }
             });
             musicService.OnCompleted();
-            showNotification(R.drawable.ic_round_pause_24);
+            musicService.showNotification(R.drawable.ic_round_pause_24);
             play_pause_btn.setImageResource(R.drawable.ic_round_pause_24);
             musicService.start();
         } else {
@@ -274,7 +274,7 @@ public class PlayerActivity extends AppCompatActivity
                 }
             });
             musicService.OnCompleted();
-            showNotification(R.drawable.ic_round_play_arrow_24);
+            musicService.showNotification(R.drawable.ic_round_play_arrow_24);
             play_pause_btn.setImageResource(R.drawable.ic_round_play_arrow_24);
         }
     }
@@ -316,7 +316,7 @@ public class PlayerActivity extends AppCompatActivity
                 }
             });
             musicService.OnCompleted();
-            showNotification(R.drawable.ic_round_pause_24);
+            musicService.showNotification(R.drawable.ic_round_pause_24);
             play_pause_btn.setImageResource(R.drawable.ic_round_pause_24);
             musicService.start();
         } else {
@@ -345,7 +345,7 @@ public class PlayerActivity extends AppCompatActivity
                 }
             });
             musicService.OnCompleted();
-            showNotification(R.drawable.ic_round_play_arrow_24);
+            musicService.showNotification(R.drawable.ic_round_play_arrow_24);
             play_pause_btn.setImageResource(R.drawable.ic_round_play_arrow_24);
         }
     }
@@ -372,7 +372,7 @@ public class PlayerActivity extends AppCompatActivity
 
         if (musicService.isPlaying()) {
             play_pause_btn.setImageResource(R.drawable.ic_round_play_arrow_24);
-            showNotification(R.drawable.ic_round_play_arrow_24);
+            musicService.showNotification(R.drawable.ic_round_play_arrow_24);
             musicService.pause();
             seekBar.setMax(musicService.getDuration() / 1000);
             PlayerActivity.this.runOnUiThread(new Runnable() {
@@ -388,7 +388,7 @@ public class PlayerActivity extends AppCompatActivity
             });
         } else {
             play_pause_btn.setImageResource(R.drawable.ic_round_pause_24);
-            showNotification(R.drawable.ic_round_pause_24);
+            musicService.showNotification(R.drawable.ic_round_pause_24);
             musicService.start();
             seekBar.setMax(musicService.getDuration() / 1000);
             PlayerActivity.this.runOnUiThread(new Runnable() {
@@ -435,7 +435,7 @@ public class PlayerActivity extends AppCompatActivity
 
         if (listSongs != null) {
             play_pause_btn.setImageResource(R.drawable.ic_round_pause_24);
-            showNotification(R.drawable.ic_round_pause_24);
+
             uri = Uri.parse(listSongs.get(position).getPath());
         }
 
@@ -534,6 +534,7 @@ public class PlayerActivity extends AppCompatActivity
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onServiceConnected(ComponentName componentName, IBinder service) {
 
@@ -552,6 +553,7 @@ public class PlayerActivity extends AppCompatActivity
         artistname.setText(listSongs.get(position).getArtist());
 
         musicService.OnCompleted();
+        musicService.showNotification(R.drawable.ic_round_pause_24);
     }
 
     @Override
@@ -559,68 +561,9 @@ public class PlayerActivity extends AppCompatActivity
         musicService = null;
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.M)
-    void showNotification(int playpasueBtn)
-    {
-
-        Intent intent =new Intent(this,PlayerActivity.class);
-        @SuppressLint("UnspecifiedImmutableFlag") PendingIntent contentIntent=PendingIntent.getBroadcast(this,0,intent,PendingIntent.FLAG_IMMUTABLE );
-
-
-        Intent previntent =new Intent(this,NotificationReceiver.class)
-                .setAction(ACTION_PREVIOUS);
-        @SuppressLint("UnspecifiedImmutableFlag") PendingIntent prevPending=PendingIntent.getBroadcast(this,0,previntent,PendingIntent.FLAG_IMMUTABLE);
 
 
 
-        Intent pauseintent =new Intent(this,NotificationReceiver.class)
-                .setAction(ACTION_PLAY);
-        @SuppressLint("UnspecifiedImmutableFlag") PendingIntent pausePending=PendingIntent.getBroadcast(this,0,pauseintent,PendingIntent.FLAG_IMMUTABLE);
-
-
-
-        Intent nextintent =new Intent(this,NotificationReceiver.class)
-                .setAction(ACTION_NEXT);
-        @SuppressLint("UnspecifiedImmutableFlag") PendingIntent nextPending=PendingIntent.getBroadcast(this,0,nextintent,PendingIntent.FLAG_IMMUTABLE);
-
-
-        byte [] picture =null;
-        picture =getAlbumArt(listSongs.get(position).getPath());
-        Bitmap thumb=null;
-        if (picture != null)
-        {
-            thumb= BitmapFactory.decodeByteArray(picture,0,picture.length);
-        }
-        else
-        {
-            thumb= BitmapFactory.decodeResource(getResources(),R.drawable.ic_round_music_note_24);
-        }
-
-        Notification notification=new NotificationCompat.Builder(this,CHANNEL_ID1)
-                .setSmallIcon(playpasueBtn)
-                .setLargeIcon(thumb)
-                .setContentTitle(listSongs.get(position).getTitle())
-                .setContentText(listSongs.get(position).getArtist())
-                .addAction(R.drawable.ic_round_skip_previous_24,"Previous",prevPending)
-                .addAction(playpasueBtn,"Pause",pausePending)
-                .addAction(R.drawable.ic_round_skip_next_24,"Next",nextPending)
-                .setStyle(new androidx.media.app.NotificationCompat.MediaStyle()
-                        .setMediaSession(mediaSessionCompat.getSessionToken()))
-                .setPriority(NotificationCompat.PRIORITY_HIGH)
-                .setOnlyAlertOnce(true)
-                .build();
-        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        notificationManager.notify(0,notification);
-    }
-
-    private byte[] getAlbumArt(String uri)
-    {
-        MediaMetadataRetriever retriever =new MediaMetadataRetriever();
-        retriever.setDataSource(uri);
-        byte [] album= retriever.getEmbeddedPicture();
-        retriever.release();
-        return album;
-    }
 
 
 }

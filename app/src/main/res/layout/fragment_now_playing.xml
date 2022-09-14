@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".NowPlayingFragment">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/card_bottom_player"
+        android:background="?attr/colorOnPrimary"
+        android:padding="5dp"
+        >
+
+        <ImageView
+            android:id="@+id/bottom_album_art"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_round_music_note_24" />
+
+        <ImageView
+            android:id="@+id/ski_next_bottom"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/ic_round_skip_next_24"
+            app:tint="?attr/colorOnSecondary" />
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/play_pause_btn_miniPlayer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@id/ski_next_bottom"
+            android:src="@drawable/ic_round_play_arrow_24"
+            app:backgroundTint="?attr/colorPrimaryVariant"
+
+            app:fabSize="mini"
+            app:tint="?attr/colorOnSecondary" />
+
+        <TextView
+            android:id="@+id/song_name_MiniPlayer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toStartOf="@+id/play_pause_btn_miniPlayer"
+            android:layout_toEndOf="@+id/bottom_album_art"
+            android:maxLines="1"
+            android:textStyle="bold"
+            android:text="Song name is here"
+            android:textColor="?attr/colorOnSecondary"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/song_artist_MiniPlayer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/song_name_MiniPlayer"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toStartOf="@+id/play_pause_btn_miniPlayer"
+            android:layout_toEndOf="@+id/bottom_album_art"
+            android:maxLines="1"
+            android:text="Artist Name"
+            android:textColor="?attr/colorOnSecondary"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+</FrameLayout>
