@@ -9,6 +9,7 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import android.Manifest;
@@ -37,7 +38,12 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     static boolean shuffleBoolean =false,repatBoolean=false;
     static ArrayList<MusicFiles> albums=new ArrayList<>();
     private String MY_SORT_PREFE="sortOrder";
-
+    public static  final  String MUSIC_LAST_PLAYED="LAST_PLAYED";
+    public static final String MUSIC_FILE ="STORED_MUSIC";
+    public static boolean SHOW_MINI_PLAYER=false;
+    public static String PATH_TO_FRAG=null;
+    public static  final  String ARTIST_NAME="ARTIST_NAME";
+    public static final String SONG_NAME ="SONG_NAME";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -257,5 +263,24 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        SharedPreferences preferences=getSharedPreferences(MUSIC_LAST_PLAYED,MODE_PRIVATE);
+        String value =preferences.getString(MUSIC_FILE,null);
+
+        if (value != null)
+        {
+            SHOW_MINI_PLAYER= true;
+            PATH_TO_FRAG =value;
+        }
+        else
+        {
+            SHOW_MINI_PLAYER=false;
+            PATH_TO_FRAG=null;
+        }
     }
 }
