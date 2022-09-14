@@ -9,9 +9,9 @@ public class ApplicationClass extends Application {
 
     public static final String CHANNEL_ID1="channel1";
     public static final String CHANNEL_ID2="channel2";
-    public static final String ACTION_PREVIOUS="channelprevious";
-    public static final String ACTION_NEXT="channelnext";
-    public static final String ACTION_PLAY="channelplay";
+    public static final String ACTION_PREVIOUS="actionprevious";
+    public static final String ACTION_NEXT="actionnext";
+    public static final String ACTION_PLAY="actionplay";
 
     @Override
     public void onCreate() {

@@ -8,6 +8,7 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Binder;
 import android.os.IBinder;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -50,9 +51,29 @@ public class MusicService extends Service implements MediaPlayer.OnCompletionLis
     public int onStartCommand(Intent intent, int flags, int startId) {
 
         int myPosition =intent.getIntExtra("servicePosition",-1);
+        String actionName=intent.getStringExtra("ActionName");
+
         if (myPosition != -1)
         {
             PlayMedia(myPosition);
+        }
+
+        if (actionName != null)
+        {
+            switch (actionName)
+            {
+                case "playPause":
+                    Toast.makeText(this, "play pause", Toast.LENGTH_SHORT).show();
+                    break;
+
+                case "next":
+                    Toast.makeText(this, "next", Toast.LENGTH_SHORT).show();
+                    break;
+
+                case "previous":
+                    Toast.makeText(this, "previous", Toast.LENGTH_SHORT).show();
+                    break;
+            }
         }
 
         return START_STICKY;
