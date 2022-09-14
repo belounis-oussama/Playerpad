@@ -83,27 +83,19 @@ public class MusicService extends Service implements MediaPlayer.OnCompletionLis
         if (actionName != null) {
             switch (actionName) {
                 case "playPause":
-                    Toast.makeText(this, "play pause", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(this, "play pause", Toast.LENGTH_SHORT).show();
 
-                    if (actionPlaying != null) {
-                        actionPlaying.play_pause_btnClicked();
-                    }
+                    playPauseBtnClicked();
                     break;
 
                 case "next":
-                    Toast.makeText(this, "next", Toast.LENGTH_SHORT).show();
-
-                    if (actionPlaying != null) {
-                        actionPlaying.next_btnClicked();
-                    }
+                    //Toast.makeText(this, "next", Toast.LENGTH_SHORT).show();
+                    nextBtnClicked();
                     break;
 
                 case "previous":
-                    Toast.makeText(this, "previous", Toast.LENGTH_SHORT).show();
-
-                    if (actionPlaying != null) {
-                        actionPlaying.prev_btnClicked();
-                    }
+                    //Toast.makeText(this, "previous", Toast.LENGTH_SHORT).show();
+                    previousBtnClicked();
                     break;
             }
         }
@@ -170,6 +162,8 @@ public class MusicService extends Service implements MediaPlayer.OnCompletionLis
         SharedPreferences.Editor editor=getSharedPreferences(MUSIC_LAST_PLAYED,MODE_PRIVATE).edit();
 
         editor.putString(MUSIC_FILE,uri.toString());
+        editor.putString(ARTIST_NAME,musicFiles.get(position).getArtist());
+        editor.putString(SONG_NAME,musicFiles.get(position).getTitle());
         editor.apply();
 
 
@@ -197,6 +191,30 @@ public class MusicService extends Service implements MediaPlayer.OnCompletionLis
             }
         }
 
+    }
+
+    void  nextBtnClicked()
+    {
+
+        if (actionPlaying != null) {
+            actionPlaying.next_btnClicked();
+        }
+    }
+
+
+    void playPauseBtnClicked()
+    {
+        if (actionPlaying != null) {
+            actionPlaying.play_pause_btnClicked();
+        }
+    }
+
+    void previousBtnClicked()
+    {
+
+        if (actionPlaying != null) {
+            actionPlaying.prev_btnClicked();
+        }
     }
 
     void setCallBack(ActionPlaying actionPlaying)
