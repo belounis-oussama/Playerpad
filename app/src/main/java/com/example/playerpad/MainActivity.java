@@ -14,6 +14,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(R.style.Theme_Playerpad4);
         setContentView(R.layout.activity_main);
 
 
@@ -293,7 +295,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 break;
 
             case R.id.settings:
-                Toast.makeText(this, "open settings", Toast.LENGTH_SHORT).show();
+
+                startActivity(new Intent(getApplicationContext(),com.example.playerpad.Settings.class));
                 break;
         }
 

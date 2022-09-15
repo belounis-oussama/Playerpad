@@ -13,4 +13,22 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorSecondary</item>
         <!-- Customize your theme here. -->
     </style>
+
+
+
+
+    <style name="Theme.Playerpad4" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/Green_level24</item>
+        <item name="colorPrimaryVariant">@color/buttons_color4</item>
+        <item name="colorOnPrimary">@color/Green_level34</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/Green_level14</item>
+        <item name="colorSecondaryVariant">@color/buttons_color4</item>
+        <item name="colorOnSecondary">@color/backgroud_white4</item>
+
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorSecondary</item>
+        <!-- Customize your theme here. -->
+    </style>
 </resources>

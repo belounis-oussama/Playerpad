@@ -33,6 +33,8 @@ public class SongsFragment extends Fragment {
 
 
 
+
+
         if (!(musicFiles.size()<1))
         {
             musicAdapter =new MusicAdapter(getContext(),musicFiles);

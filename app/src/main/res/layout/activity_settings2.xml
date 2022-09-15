@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorOnPrimary"
+    android:orientation="vertical"
+    tools:context=".Settings">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/uiSettings"
+        >
+
+        <TextView
+            android:id="@+id/uititle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="UI Settings"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/uititle"
+           android:id="@+id/darkmodeContainer"
+
+           >
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+               android:layout_marginStart="10dp"
+               android:text="Dark mode"
+               android:textColor="?attr/colorOnSecondary"
+               android:textSize="18sp"
+               android:id="@+id/darkmodetitle"
+               android:layout_centerVertical="true"
+               android:textStyle="bold" />
+
+           <com.google.android.material.switchmaterial.SwitchMaterial
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_alignParentEnd="true"
+               android:layout_centerVertical="true"
+               android:layout_toEndOf="@+id/darkmodetitle"
+               android:backgroundTint="?attr/colorPrimary"
+
+               />
+       </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/darkmodeContainer"
+            >
+
+            <TextView
+                android:id="@+id/themeusedtext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="10dp"
+                android:text="Theme"
+                android:textColor="?attr/colorOnSecondary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/themeused"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/themeusedtext"
+                android:layout_marginStart="16sp"
+                android:text="green"
+                android:textColor="?attr/colorOnSecondary"
+                android:textSize="14sp"
+                android:textStyle="normal" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>

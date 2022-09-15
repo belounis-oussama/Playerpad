@@ -15,4 +15,31 @@
     <color name="Green_level2">#354F52</color>
     <color name="Green_level3">#2F3E46</color>
 
+
+
+    <color name="backgroud_white2">#ffcdb2</color>
+    <color name="buttons_color2">#ffb4a2</color>
+    <color name="Green_level12">#e5989b</color>
+    <color name="Green_level22">#b5838d</color>
+    <color name="Green_level32">#6d6875</color>
+
+
+
+    <color name="backgroud_white3">#f2e9e4</color>
+    <color name="buttons_color3">#c9ada7</color>
+    <color name="Green_level13">#9a8c98</color>
+    <color name="Green_level23">#4a4e69</color>
+    <color name="Green_level33">#22223b</color>
+
+
+
+    <color name="backgroud_white4">#edf2f4</color>
+    <color name="buttons_color4">#ef233c</color>
+    <color name="Green_level14">#8d99ae</color>
+    <color name="Green_level24">#d80032</color>
+    <color name="Green_level34">#2b2d42</color>
+
+
+
+
 </resources>

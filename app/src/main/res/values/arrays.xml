@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="themes">
+        <item  name="1">daily</item>
+        <item  name="7">weekly</item>
+    </string-array>
+
+
+    <string-array name="themes_values">
+        <item  name="1">1</item>
+        <item  name="7">7</item>
+    </string-array>
+</resources>

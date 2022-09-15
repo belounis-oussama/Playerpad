@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <PreferenceCategory android:title="UI Settings">
+
+        <CheckBoxPreference android:title="Dark mode"
+            android:summary="Set your preferred mode"
+            android:key="prefThememode"
+            android:defaultValue="false"  >
+
+        </CheckBoxPreference>
+
+
+
+
+
+        <ListPreference android:title="Theme"
+            android:summary="Set your preferred theme"
+            android:key="thememode"
+
+            android:entries="@array/themes"
+            android:entryValues="@array/themes_values"
+
+            />
+    </PreferenceCategory>
+
+
+
+
+
+
+
+</PreferenceScreen>
