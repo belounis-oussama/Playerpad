@@ -29,4 +29,9 @@
         </menu>
 
     </item>
+
+    <item android:id="@+id/settings"
+        android:title="Settings"
+        app:showAsAction="never"
+        />
 </menu>

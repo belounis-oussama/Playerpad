@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/card_bottom_player"
-        android:background="?attr/colorOnPrimary"
+        android:background="@drawable/toolbar_color"
         android:padding="5dp"
         >
 
@@ -20,7 +20,8 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_round_music_note_24" />
+
+            android:src="@drawable/ic_round_music_note_light" />
 
         <ImageView
             android:id="@+id/ski_next_bottom"
@@ -30,7 +31,7 @@
             android:layout_centerVertical="true"
             android:layout_marginEnd="10dp"
             android:src="@drawable/ic_round_skip_next_24"
-            app:tint="?attr/colorOnSecondary" />
+            app:tint="?attr/colorOnPrimary" />
 
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -44,7 +45,7 @@
             app:backgroundTint="?attr/colorPrimaryVariant"
 
             app:fabSize="mini"
-            app:tint="?attr/colorOnSecondary" />
+            app:tint="?attr/colorOnPrimary" />
 
         <TextView
             android:id="@+id/song_name_MiniPlayer"
@@ -55,10 +56,10 @@
             android:layout_toStartOf="@+id/play_pause_btn_miniPlayer"
             android:layout_toEndOf="@+id/bottom_album_art"
             android:maxLines="1"
-            android:textStyle="bold"
             android:text="Song name is here"
-            android:textColor="?attr/colorOnSecondary"
-            android:textSize="18sp" />
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/song_artist_MiniPlayer"
@@ -71,7 +72,7 @@
             android:layout_toEndOf="@+id/bottom_album_art"
             android:maxLines="1"
             android:text="Artist Name"
-            android:textColor="?attr/colorOnSecondary"
+            android:textColor="?attr/colorOnPrimary"
             android:textSize="14sp" />
     </RelativeLayout>
 

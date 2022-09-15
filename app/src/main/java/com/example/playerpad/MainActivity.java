@@ -16,10 +16,13 @@ import android.Manifest;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.database.Cursor;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
@@ -51,6 +54,36 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        TypedValue typedValue = new TypedValue();
+        getTheme().resolveAttribute(com.google.android.material.R.attr.colorOnSecondary, typedValue, true);
+        int colorOnSecondary = typedValue.data;
+
+
+        TypedValue typedValue2 = new TypedValue();
+        getTheme().resolveAttribute(com.google.android.material.R.attr.colorSecondary, typedValue2, true);
+        int colorSecondary = typedValue2.data;
+
+
+
+        int nightModeFlags =
+                getApplicationContext().getResources().getConfiguration().uiMode &
+                        Configuration.UI_MODE_NIGHT_MASK;
+        switch (nightModeFlags) {
+            case Configuration.UI_MODE_NIGHT_YES:
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(colorSecondary));
+                break;
+
+            case Configuration.UI_MODE_NIGHT_NO:
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(colorOnSecondary));
+                break;
+
+            case Configuration.UI_MODE_NIGHT_UNDEFINED:
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(colorOnSecondary));
+                break;
+        }
+
 
 
 
@@ -163,8 +196,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     }
 
-
-
     public static  class ViewPagerAdapter extends FragmentPagerAdapter {
 
         private ArrayList<Fragment> fragments;
@@ -204,7 +235,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         }
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(@NonNull Menu menu) {
         getMenuInflater().inflate(R.menu.search,menu);
@@ -214,7 +244,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
         return super.onCreateOptionsMenu(menu);
     }
-
 
     @Override
     public boolean onQueryTextSubmit(String query) {
@@ -261,6 +290,10 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 editor.putString("sorting","sortBySize");
                 editor.apply();
                 this.recreate();
+                break;
+
+            case R.id.settings:
+                Toast.makeText(this, "open settings", Toast.LENGTH_SHORT).show();
                 break;
         }
 

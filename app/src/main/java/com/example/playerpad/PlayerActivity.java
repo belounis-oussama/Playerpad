@@ -68,8 +68,6 @@ public class PlayerActivity extends AppCompatActivity
     private Thread playThread, prevThread, nexThread;
     MusicService musicService;
 
-
-
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -454,13 +452,12 @@ public class PlayerActivity extends AppCompatActivity
         cover_art = findViewById(R.id.cover_art);
         nextt_btn = findViewById(R.id.next_btn);
         prev_btn = findViewById(R.id.prev_btn);
-        back_btn = findViewById(R.id.back_btn);
+
         suffle_btn = findViewById(R.id.shuffle_btn);
         repeat_btn = findViewById(R.id.repeat_btn);
         play_pause_btn = findViewById(R.id.playpause);
         seekBar = findViewById(R.id.seek_bar);
     }
-
 
     public void ImageAnimation(Context context, ImageView imageView, Bitmap bitmap, boolean isdrawble) {
 
@@ -533,7 +530,6 @@ public class PlayerActivity extends AppCompatActivity
         }
     }
 
-
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onServiceConnected(ComponentName componentName, IBinder service) {
@@ -560,10 +556,5 @@ public class PlayerActivity extends AppCompatActivity
     public void onServiceDisconnected(ComponentName componentName) {
         musicService = null;
     }
-
-
-
-
-
 
 }
