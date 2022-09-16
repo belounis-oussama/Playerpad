@@ -41,5 +41,12 @@
 
 
 
+    <color name="backgroud_white5">#fffcf2</color>
+    <color name="buttons_color5">#eb5e28</color>
+    <color name="Green_level15">#ccc5b9</color>
+    <color name="Green_level25">#403d39</color>
+    <color name="Green_level35">#252422</color>
+
+
 
 </resources>

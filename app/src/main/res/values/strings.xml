@@ -2,4 +2,14 @@
     <string name="app_name">Playerpad</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+
+    <string-array name="theme_list">
+        <item name="hah">Hookers Green</item>
+        <item  name="hah2">Pink Lavender</item>
+        <item>Candy Apple Red</item>
+        <item>Spanish Purple</item>
+        <item>Black Olive</item>
+    </string-array>
 </resources>

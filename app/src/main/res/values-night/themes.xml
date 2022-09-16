@@ -31,4 +31,59 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorSecondary</item>
         <!-- Customize your theme here. -->
     </style>
+
+
+
+
+
+    <style name="Theme.Playerpad2" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorSecondary">@color/Green_level12</item>
+        <item name="colorSecondaryVariant">@color/buttons_color2</item>
+        <item name="colorOnSecondary">@color/backgroud_white2</item>
+        <!-- Secondary brand color. -->
+        <item name="colorPrimary">@color/Green_level22</item>
+        <item name="colorPrimaryVariant">@color/buttons_color2</item>
+        <item name="colorOnPrimary">@color/Green_level32</item>
+
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" >?attr/colorSecondary</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+
+
+    <style name="Theme.Playerpad3" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorSecondary">@color/Green_level13</item>
+        <item name="colorSecondaryVariant">@color/buttons_color3</item>
+        <item name="colorOnSecondary">@color/backgroud_white3</item>
+        <!-- Secondary brand color. -->
+        <item name="colorPrimary">@color/Green_level23</item>
+        <item name="colorPrimaryVariant">@color/buttons_color3</item>
+        <item name="colorOnPrimary">@color/Green_level33</item>
+
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" >?attr/colorSecondary</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+
+
+    <style name="Theme.Playerpad5" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorSecondary">@color/Green_level15</item>
+        <item name="colorSecondaryVariant">@color/buttons_color5</item>
+        <item name="colorOnSecondary">@color/backgroud_white5</item>
+        <!-- Secondary brand color. -->
+        <item name="colorPrimary">@color/Green_level25</item>
+        <item name="colorPrimaryVariant">@color/buttons_color5</item>
+        <item name="colorOnPrimary">@color/Green_level35</item>
+
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" >?attr/colorSecondary</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+
 </resources>

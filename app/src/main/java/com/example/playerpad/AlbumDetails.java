@@ -6,8 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.SharedPreferences;
 import android.media.MediaMetadataRetriever;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -24,6 +26,7 @@ public class AlbumDetails extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setThemeofApp();
         setContentView(R.layout.activity_album_details);
 
         initWidget();
@@ -65,6 +68,35 @@ public class AlbumDetails extends AppCompatActivity {
             recyclerView.setAdapter(albumDetailsAdapter);
             recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         }
+    }
+    private void setThemeofApp() {
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        int theme=preferences.getInt("ThemeNumber",0);
+
+        switch (theme)
+        {
+            case 0:
+                setTheme(R.style.Theme_Playerpad);
+                break;
+
+            case 1:
+                setTheme(R.style.Theme_Playerpad2);
+                break;
+
+            case 2:
+                setTheme(R.style.Theme_Playerpad4);
+                break;
+            case 3:
+                setTheme(R.style.Theme_Playerpad3);
+                break;
+
+            case 4:
+                setTheme(R.style.Theme_Playerpad5);
+
+        }
+
+        //setTheme(R.style.Theme_Playerpad4);
     }
 
     private byte[] getAlbumArt(String uri)

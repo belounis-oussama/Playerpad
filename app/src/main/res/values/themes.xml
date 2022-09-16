@@ -28,7 +28,7 @@
         <item name="colorOnSecondary">@color/Green_level32</item>
 
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorOnSecondary</item>
+        <item name="android:statusBarColor" >?attr/colorOnSecondary</item>
         <!-- Customize your theme here. -->
     </style>
 
@@ -45,10 +45,42 @@
         <item name="colorOnSecondary">@color/Green_level34</item>
 
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorOnSecondary</item>
+        <item name="android:statusBarColor" >?attr/colorOnSecondary</item>
         <!-- Customize your theme here. -->
     </style>
 
+
+
+    <style name="Theme.Playerpad3" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/Green_level13</item>
+        <item name="colorPrimaryVariant">@color/buttons_color3</item>
+        <item name="colorOnPrimary">@color/backgroud_white3</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/Green_level23</item>
+        <item name="colorSecondaryVariant">@color/buttons_color3</item>
+        <item name="colorOnSecondary">@color/Green_level33</item>
+
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" >?attr/colorOnSecondary</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+
+    <style name="Theme.Playerpad5" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/Green_level15</item>
+        <item name="colorPrimaryVariant">@color/buttons_color5</item>
+        <item name="colorOnPrimary">@color/backgroud_white5</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/Green_level25</item>
+        <item name="colorSecondaryVariant">@color/buttons_color5</item>
+        <item name="colorOnSecondary">@color/Green_level35</item>
+
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" >?attr/colorOnSecondary</item>
+        <!-- Customize your theme here. -->
+    </style>
 
 
 </resources>

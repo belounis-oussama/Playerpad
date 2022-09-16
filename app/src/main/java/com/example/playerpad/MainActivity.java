@@ -22,6 +22,7 @@ import android.database.Cursor;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.util.TypedValue;
 import android.view.Menu;
@@ -54,9 +55,16 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTheme(R.style.Theme_Playerpad4);
+        setThemeofApp();
         setContentView(R.layout.activity_main);
 
+
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        SharedPreferences.Editor editor = preferences.edit();
+
+        Toast.makeText(this, String.valueOf(preferences.getInt("ThemeNumber",0)), Toast.LENGTH_SHORT).show();
+        editor.apply();
 
         TypedValue typedValue = new TypedValue();
         getTheme().resolveAttribute(com.google.android.material.R.attr.colorOnSecondary, typedValue, true);
@@ -326,5 +334,37 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             ARTIST_TO_FRAG = null;
             SONG_NAME_TO_FRAG = null;
         }
+    }
+
+    private void setThemeofApp() {
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        int theme=preferences.getInt("ThemeNumber",0);
+
+        switch (theme)
+        {
+            case 0:
+                setTheme(R.style.Theme_Playerpad);
+                break;
+
+            case 1:
+                setTheme(R.style.Theme_Playerpad2);
+                break;
+
+            case 2:
+                setTheme(R.style.Theme_Playerpad4);
+                break;
+
+            case 3:
+                setTheme(R.style.Theme_Playerpad3);
+                break;
+
+
+            case 4:
+                setTheme(R.style.Theme_Playerpad5);
+
+        }
+
+        //setTheme(R.style.Theme_Playerpad4);
     }
 }

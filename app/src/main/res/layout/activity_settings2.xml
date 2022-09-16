@@ -62,8 +62,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/darkmodeContainer"
-            >
+            android:id="@+id/themeSelector"
+            android:layout_below="@+id/darkmodeContainer">
 
             <TextView
                 android:id="@+id/themeusedtext"

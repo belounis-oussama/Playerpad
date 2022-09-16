@@ -23,6 +23,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -35,6 +36,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
+import android.preference.PreferenceManager;
 import android.support.v4.media.session.MediaSessionCompat;
 import android.util.TypedValue;
 import android.view.View;
@@ -73,6 +75,7 @@ public class PlayerActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setFullScreen();
+        setThemeofApp();
         setContentView(R.layout.activity_player);
         getSupportActionBar().hide();
 
@@ -555,6 +558,37 @@ public class PlayerActivity extends AppCompatActivity
     @Override
     public void onServiceDisconnected(ComponentName componentName) {
         musicService = null;
+    }
+
+
+    private void setThemeofApp() {
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        int theme=preferences.getInt("ThemeNumber",0);
+
+        switch (theme)
+        {
+            case 0:
+                setTheme(R.style.Theme_Playerpad);
+                break;
+
+            case 1:
+                setTheme(R.style.Theme_Playerpad2);
+                break;
+
+            case 2:
+                setTheme(R.style.Theme_Playerpad4);
+                break;
+            case 3:
+                setTheme(R.style.Theme_Playerpad3);
+                break;
+
+
+            case 4:
+                setTheme(R.style.Theme_Playerpad5);
+        }
+
+        //setTheme(R.style.Theme_Playerpad4);
     }
 
 }
